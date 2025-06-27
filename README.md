@@ -37,9 +37,9 @@ const trie = new StringImpl(...);
 // imports core radix-trie abstract class
 import { Core } from '@webkrafters/radix-trie';
 
-class CustomImpl extends Core {
+class CustomImpl<T> extends Core<T> {
   matches(...) : boolean { ... }
-  merge(...) : void {...}
+  merge(...) : void { ... }
 }
 ```
 
@@ -75,7 +75,7 @@ To obtain trieable node corresponding to the real value of the trie, please use 
 The core abstract class contains **two** **`abstract`** methods. Although not expressly designated as *abstract* in the package due to Typescript and Javascript limitations, they require custom implementations.
 
 This custom implementation requirement is enforced at runtime.
-s
+
 ### 1. Matches Method.
 ```tsx
 matches(...): boolean;
@@ -90,7 +90,7 @@ This method merges any `Trie` instance and `TrieableNode` object into `this` ins
 
 # More Reading
 
-Please see more on this implementation please see the base package documentation here:<br />
+For the documentation on the rest of the properties and methods, please visit the base package documentation here:<br />
 
 [https://github.com/webKrafters/trie.js/blob/master/docs.md](https://github.com/webKrafters/trie.js/blob/master/docs.md)
 
