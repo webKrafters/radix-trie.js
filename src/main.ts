@@ -182,10 +182,10 @@ export default abstract class Trie<T = unknown> extends Base<T> {
             const seqSegment = this._createSegment( sequence )
             const pSegSequence = this._getFarthestIn( seqSegment );
             const pSeqCount = countUnitsIn( pSegSequence );
-            sNode = this._getNodeAtPrefixEnd( pSegSequence as Iterable<T> ) as Node<Segment<T>>;
             rem = seqSegment.slice( pSeqCount );
+            if( !rem.length ) { return }
+            sNode = this._getNodeAtPrefixEnd( pSegSequence as Iterable<T> ) as Node<Segment<T>>;
         }
-        if( !rem.length ) { return }
         let splitNode = this._findNodeAtPrefix(
             rem.slice( 0, 1 ),
             sNode.childNodes.list()
